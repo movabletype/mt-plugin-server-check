@@ -22,7 +22,7 @@ sub test_connection {
     if (!$author) {
 	die "Author not found.\n";
     }
-    print "OK\n";
+    print "SERVER_CHECK_OK\n";
 }
 
 send_headers();
