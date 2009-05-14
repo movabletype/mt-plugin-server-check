@@ -3,9 +3,11 @@
 use strict;
 use warnings;
 
-use lib "./lib", ($ENV{MT_HOME} ? "$ENV{MT_HOME}/lib" : "../../lib");
-use lib "./extlib", ($ENV{MT_HOME} ? "$ENV{MT_HOME}/extlib" : "../../extlib");
+use FindBin;
+use Cwd 'abs_path';
 
+use lib "$FindBin::Bin/../../lib";
+use lib "$FindBin::Bin/../../extlib";
 use MT;
 use MT::Author;
 
@@ -17,7 +19,9 @@ END
 }
 
 sub test_connection {
-    my $mt = MT->new;
+    my $path = "$FindBin::Bin/../../mt-config.cgi";
+    my %args = (Config => abs_path($path));
+    my $mt = MT->new(%args);
     my $author = MT::Author->load(undef, { limit => 1 });
     if (!$author) {
 	die "Author not found.\n";
