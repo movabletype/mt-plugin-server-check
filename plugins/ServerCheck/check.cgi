@@ -24,7 +24,7 @@ sub test_connection {
     my $mt = MT->new(%args);
     my $author = MT::Author->load(undef, { limit => 1 });
     if (!$author) {
-	die "Author not found.\n";
+        die "Author not found.\n";
     }
     print "SERVER_CHECK_OK\n";
 }
