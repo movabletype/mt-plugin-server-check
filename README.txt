@@ -1,4 +1,4 @@
-The ServerCheck plugin for Movable Type provides a super basic CGI script that
+The Server Check plugin for Movable Type provides a super basic CGI script that
 when accessed will produce the output:
 
 SERVER_CHECK_OK
